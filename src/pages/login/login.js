@@ -28,10 +28,9 @@ const Login = () => {
     } catch (err) {
       setSuccess("");
       const message =
-        err?.response?.data?.message ||
-        err?.response?.data ||
-        err?.message ||
-        "Server error ❌";
+        err?.response?.data?.message +
+        err?.response?.data +
+        err?.message;
       setError(message);
       console.error(err);
     }
