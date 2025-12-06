@@ -27,7 +27,12 @@ const Login = () => {
       }
     } catch (err) {
       setSuccess("");
-      setError("Server error ❌", err);
+      const message =
+        err?.response?.data?.message ||
+        err?.response?.data ||
+        err?.message ||
+        "Server error ❌";
+      setError(message);
       console.error(err);
     }
   };
