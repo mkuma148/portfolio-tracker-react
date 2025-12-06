@@ -27,7 +27,7 @@ const Login = () => {
       }
     } catch (err) {
       setSuccess("");
-      setError("Server error ❌");
+      setError("Server error ❌", err);
       console.error(err);
     }
   };
