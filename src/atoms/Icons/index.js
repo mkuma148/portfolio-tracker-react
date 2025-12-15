@@ -1,6 +1,5 @@
 import React from "react";
 import IconStyles from "./index.scss";
-import { Badge } from "react-bootstrap";
 
 export const Icons = ({
   clickHandler,

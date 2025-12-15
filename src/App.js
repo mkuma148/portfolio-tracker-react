@@ -1,14 +1,14 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, NavLink } from "react-router-dom";
+import { Routes, Route, useLocation, NavLink } from "react-router-dom";
 import Login from "./pages/login/login";
 import Home from "./pages/home/home";
 import Registration from "./pages/registration/registration";
 import Header from "./atoms/Header";
 import { Layout } from "./HOC/Layout";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { Icons } from "./atoms/Icons";
 import { jwtDecode } from "jwt-decode";
-import Buttons from "./atoms/Buttons";
+// import Buttons from "./atoms/Buttons";
 
 function App() {
   const location = useLocation();
