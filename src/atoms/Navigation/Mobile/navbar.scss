@@ -1,0 +1,208 @@
+.bg-body-tertiary {
+    // --bs-tertiary-bg-rgb: 0, 0, 255;
+    background-color: #E6E8EB;
+    ;
+    height: 80px;
+
+    & .tpt-brand {
+        margin-left: 38px;
+    }
+
+    & .navbar-toggler {
+        border: none !important;
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+}
+
+.tpt-title {
+    margin: 30px;
+}
+
+.back-button {
+    margin-left: 10px;
+    margin-top: 35px;
+}
+
+.back-button-anchor {
+    text-decoration: none;
+    color: black;
+    font-family: Calibri;
+    font-size: 16px;
+}
+
+.line {
+    color: black;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 35px;
+}
+
+.arrow {
+    margin-right: 10px;
+}
+
+.offcanvas {
+    background-color: #E6E8EB !important;
+}
+
+.nav-link {
+    color: black;
+    padding-left: 30px;
+
+    &:hover {
+        background-color: turquoise;
+        // width: 349px;
+        color: blue !important;
+        font-weight: bold;
+    }
+
+    &:active {
+        background-color: turquoise !important;
+        width: 349px;
+    }
+}
+
+.btn-close {
+    // --bs-btn-close-bg: url("/assets/svg-icons/close-white.svg");
+    --bs-btn-close-opacity: 1;
+    --bs-btn-close-hover-opacity: 0.5;
+    //  padding-bottom: 50px !important;
+    box-shadow: none !important;
+    margin-right: 12px !important;
+    font-size: 25px;
+}
+
+.active::before {
+    background-color: blue !important;
+    content: none;
+}
+
+.nav-link.active {
+    color: black !important;
+}
+
+.offcanvas-body {
+    flex-grow: 1;
+    padding: 50px 0px 0px 0px !important;
+    overflow-y: auto;
+    //  width: 400px;
+}
+
+// .container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+//   padding-left: none;
+// }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submenu-container {
+    display: flex;
+}
+
+.submenu-heading {
+    margin: 0 0 1px 18px;
+    margin-top: 3px;
+    font-family: Calibri;
+    font-size: 24px;
+    line-height: 0.83;
+    color: balck;
+}
+
+.submenu-text-margin {
+    margin: 0 0 1px 28px;
+    font-family: Calibri;
+    font-size: 16px;
+}
+
+.menuSpacing {
+    padding-bottom: 12px;
+
+    & .badge {
+        left: 2px;
+        position: relative;
+        top: -10px;
+    }
+}
+
+.spacing {
+    margin-left: 25px;
+}
+
+.back-button {
+    color: white;
+    background: transparent;
+    border: none;
+}
+
+.mobile-profile {
+    .user-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 40px; // desktop
+    }
+
+    /* Responsive tweak */
+    @media (max-width: 768px) {
+        .user-actions {
+            padding-right: 16px;
+        }
+    }
+
+    .profile-wrapper {
+        margin-right: 10px; // pic ke baad thoda sa air
+
+        & .profile-pic {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        & .profile-pic:hover {
+            transform: scale(1.08);
+        }
+
+        & .profile-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    .logout-button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        &:hover svg {
+            transform: rotate(-8deg) scale(1.15);
+            opacity: 0.85;
+        }
+    }
+
+    .user-name {
+        margin-right: 18px; // naam aur logout ke beech space
+        font-size: 13px;
+        font-weight: 400;
+        color: #666; // subtle, not shouting
+    }
+}

@@ -1,0 +1,66 @@
+/* src/roundButton.css */
+
+.custom-round-btn {
+  border-radius: 50px;
+  /* FULL ROUND */
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.custom-round-btn:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.05);
+}
+
+.circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* 🔥 PERFECT CIRCLE */
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.circle-btn:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.1);
+}
+
+/* src/threeDButton.css */
+
+/* src/threeDButton.css */
+
+.three-d-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  color: blue;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  background: linear-gradient(145deg, #d1d1d1, #f5f5f5);
+
+  /* 👈 LEFT + DOWN SHADOW */
+  box-shadow: -6px 6px 0 #a0a0a0, -10px 10px 20px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.15s ease-in-out;
+}
+
+/* PRESS EFFECT */
+.three-d-btn:active {
+  transform: translate(-4px, 4px);
+  box-shadow: -2px 2px 0 #a0a0a0, -5px 5px 10px rgba(0, 0, 0, 0.15);
+}

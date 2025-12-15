@@ -1,0 +1,68 @@
+.main-container {
+
+    .user-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 40px; // desktop
+    }
+
+    /* Responsive tweak */
+    @media (max-width: 768px) {
+        .user-actions {
+            padding-right: 16px;
+        }
+    }
+
+    .profile-wrapper {
+        margin-right: 10px; // pic ke baad thoda sa air
+
+        & .profile-pic {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        & .profile-pic:hover {
+            transform: scale(1.08);
+        }
+
+        & .profile-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    .logout-button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        &:hover svg {
+            transform: rotate(-8deg) scale(1.15);
+            opacity: 0.85;
+        }
+    }
+
+    .user-name {
+        margin-right: 18px; // naam aur logout ke beech space
+        font-size: 13px;
+        font-weight: 400;
+        color: #666; // subtle, not shouting
+    }
+}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const API_BASE_URL = "http://localhost:8080/api"; // backend base URL
-const API_BASE_URL = "https://portfolio-tracker-spring-production.up.railway.app/api"; // backend base URL
+const API_BASE_URL = "http://localhost:8080/"; // backend base URL
+// const API_BASE_URL = "https://portfolio-tracker-spring-production.up.railway.app/api"; // backend base URL
 
 // Create axios instance
 const axiosInstance = axios.create({

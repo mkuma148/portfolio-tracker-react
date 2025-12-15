@@ -1,0 +1,158 @@
+.sidebar-container {
+    display: block;
+
+    & .active {
+        border-left: 2px solid turquoise;
+        background: rgba(255,255,255,1);
+    }
+
+    & .menu-item {
+        display: flex;
+        gap: 22px;
+        font-size: larger;
+    }
+
+    & .main-child {
+        margin-left: 80px;
+        transition: margin-left 0.1s ease;
+
+        @media (min-width: 1440px) and (max-width: 1920px) {
+            margin-left: 80px;
+        }
+
+        @media (max-width: 1440px) {
+            margin-left: 0;
+        }
+    }
+
+    & .sidebar {
+        position: fixed;
+        background: #E6E8EB;
+        color: black;
+        height: 100%;
+        z-index: 999;
+        //TODO - to give scroll section
+        overflow: auto;
+        width: 80px;
+        transition: width 0.1s ease;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        @media (min-width: 1440px) and (max-width: 1920px) {
+            position: fixed;
+            height: 100%;
+        }
+
+        @media (max-width: 1440px) {
+            width: 80px;
+            transition: width 0.1s ease;
+        }
+    }
+
+    & .top-section {
+        position: fixed;
+        display: flex;
+        background-color: #E6E8EB;
+        height: 88px;
+        z-index: 99;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 25px 25px;
+        transition: width 0.1s ease;
+    }
+
+    & .item-scrolled {
+        box-shadow: 0 2px 12px 0 black;
+    }
+
+    & .routes-sidebar {
+        margin-top: 162px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        //TODO - to give scroll section
+        position: relative;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        @media screen and (max-width: 1366px) and (min-width: 1200px) {
+            margin-top: 88px;
+        }
+    }
+
+    & .link-subRoute {
+        text-decoration: none;
+        display: flex;
+        color: black;
+        gap: 25px;
+        padding: 16px 32px 12px 30px;
+        font-size: 16px;
+        white-space: nowrap;
+
+        &:hover {
+            border-left: 2px solid turquoise;
+            background: rgba(255,255,255,0.6)
+        }
+
+        .badge {
+            position: relative;
+            left: -3px;
+            top: -8px;
+        }
+    }
+
+    & .link-text {
+        font-size: 16px;
+    }
+
+    & .menu-sidebar {
+        display: flex;
+        color: black;
+        padding: 16px 28px 12px 30px;
+        justify-content: space-between;
+
+        &:hover {
+            border-left: 2px solid turquoise;
+            background:rgba(255,255,255,0.6)
+        }
+    }
+
+    & .menu-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & .menu-container .link-subRoute {
+        padding-left: 46px;
+        white-space: wrap;
+        background: #F5F5F5;
+        &:hover {
+            background: rgba(255,255,255,0.6);
+        }
+    }
+
+    & .label-align {
+        display: flex;
+        // align-items: center;
+        // text-align: center;
+        // justify-content: center;
+        text-decoration: none;
+    }
+
+    & .icon {
+        color: black;
+        text-decoration: none;
+        position: relative;
+        bottom: 6px;
+    }
+
+    & .horizontal-Line {
+        margin: 12px;
+        color: green;
+    }
+}
