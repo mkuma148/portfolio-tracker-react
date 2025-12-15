@@ -85,12 +85,12 @@ const Login = () => {
         <button onClick={handleLogin}>Sign In</button>
 
         <span className="divider">OR</span>
-
+<div className="wrapper-google">
         <GoogleLogin
           onSuccess={handleGoogleSuccess}
           onError={handleGoogleError}
         >Continue with Google</GoogleLogin>
-
+</div>
         <div className="bottom-text">
           Don’t have an account? <b onClick={() => navigate("/register")}>Sign up</b>
         </div>
