@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./home.scss";
+import TradingViewChart from "../../atoms/TradingViewChart";
+import { Button } from "react-bootstrap";
+import TradingViewAdvancedChart from "../../atoms/TradingViewAdvancedChart";
+import KaspaLightChart from "../../atoms/KaspaLightChart";
 
 // ------------------
 // STATIC DATA ONLY
@@ -18,6 +22,10 @@ const stats = {
 };
 
 export default function Home() {
+  const [coin, setCoin] = useState("MEXC:KASUSDT");
+  const [theme, setTheme] = useState("light");
+  const [activeCoin, setActiveCoin] = useState("kaspa");
+  const [isRetrying, setIsRetrying] = useState(false);
   return (
     <div className="dashboard dashboard--no-nav">
 
@@ -38,11 +46,31 @@ export default function Home() {
 
           {/* Transaction Graph (static) */}
           <div className="card graph">
-            <h4>Total Transaction</h4>
-            <div className="fake-graph" />
+            <div>
+              <div style={{ marginBottom: "10px", display: "flex", gap: "10px" }}>
+                <button
+                  className={`coin-btn ${activeCoin === "kaspa" ? "kaspa active" : "kaspa"}`}
+                  onClick={() => setActiveCoin("kaspa")}
+                  disabled={isRetrying}
+                >
+                  Kaspa
+                </button>
+
+                <button
+                  className={`coin-btn ${activeCoin === "bitcoin" ? "bitcoin active" : "bitcoin"}`}
+                  onClick={() => setActiveCoin("bitcoin")}
+                  disabled={isRetrying}
+                >
+                  Bitcoin
+                </button>
+              </div>
+
+              {activeCoin === "kaspa" && <KaspaLightChart coin="kaspa" onRetryChange={setIsRetrying}/>}
+              {activeCoin === "bitcoin" && <KaspaLightChart coin="bitcoin" onRetryChange={setIsRetrying}/>}
+            </div>
           </div>
         </div>
-        
+
         <div className="cards-row">
           {/* User Stats */}
           <div className="card">

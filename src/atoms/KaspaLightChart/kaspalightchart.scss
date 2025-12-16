@@ -1,0 +1,51 @@
+.tf-button-kaspa {
+    margin-right: 6px;
+    padding: 3px 8px;           /* chhota button */
+    border-radius: 12px;         /* pill-shaped look */
+    border: 1px solid #334155;   /* subtle border */
+    font-size: 12px;             /* small font */
+    font-weight: 500;            /* slightly bold */
+    cursor: pointer;
+    transition: all 0.2s ease;  /* smooth hover */
+    background-color: #1e293b;   /* default bg */
+    color: #cbd5f5;              /* default text */
+}
+
+.tf-button-kaspa.active {
+    background-color: turquoise;   /* selected bg */
+    color: #ffffff;              /* selected text */
+}
+
+.tf-button-kaspa:hover:not(.active) {
+    background-color: #334155;   /* hover effect for non-active */
+}
+.tf-button-kaspa:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.tf-button-bitcoin {
+    margin-right: 6px;
+    padding: 3px 8px;           /* chhota button */
+    border-radius: 12px;         /* pill-shaped look */
+    border: 1px solid #334155;   /* subtle border */
+    font-size: 12px;             /* small font */
+    font-weight: 500;            /* slightly bold */
+    cursor: pointer;
+    transition: all 0.2s ease;  /* smooth hover */
+    background-color: #1e293b;   /* default bg */
+    color: #cbd5f5;              /* default text */
+}
+
+.tf-button-bitcoin.active {
+    background-color: orange;   /* selected bg */
+    color: #ffffff;              /* selected text */
+}
+
+.tf-button-bitcoin:hover:not(.active) {
+    background-color: #334155;   /* hover effect for non-active */
+}
+.tf-button-bitcoin:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}

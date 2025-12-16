@@ -51,12 +51,10 @@
     justify-content: center;
     font-weight: 600;
     color: #ff4d8d;
-    background: conic-gradient(
-      #ff4d8d 0deg,
-      #ff4d8d 220deg,
-      #eee 220deg,
-      #eee 360deg
-    );
+    background: conic-gradient(#ff4d8d 0deg,
+        #ff4d8d 220deg,
+        #eee 220deg,
+        #eee 360deg);
   }
 
   .used {
@@ -68,14 +66,59 @@
 
 /* GRAPH CARD */
 .graph {
-  .fake-graph {
-    height: 140px;
-    border-radius: 8px;
-    background: linear-gradient(
-      to right,
-      rgba(255, 77, 141, 0.15),
-      rgba(106, 17, 203, 0.15)
-    );
+  .coin-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    /* fully round */
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    opacity: 0.75;
+  }
+
+  /* Kaspa */
+  .coin-btn.kaspa {
+    background: #2fd3c9;
+    /* turquoise */
+    color: #003a38;
+  }
+
+  /* Bitcoin */
+  .coin-btn.bitcoin {
+    background: #f7931a;
+    /* bitcoin orange */
+    color: #3a2400;
+  }
+
+  /* Active button */
+  .coin-btn.active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Hover effect */
+  .coin-btn:hover {
+    opacity: 1;
+  }
+
+  /* 🔥 Disabled – color SAME, feel disabled */
+  .coin-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    /* main disabled feel */
+    filter: saturate(70%);
+    /* color thoda dull */
+    box-shadow: none;
+    transform: none;
+    pointer-events: none;
+  }
+
+  /* Hover disable */
+  .coin-btn:disabled:hover {
+    transform: none;
   }
 }
 
@@ -83,13 +126,11 @@
 .bars {
   height: 120px;
   margin-top: 16px;
-  background: repeating-linear-gradient(
-    to right,
-    #ff4d8d 0,
-    #ff4d8d 16px,
-    transparent 16px,
-    transparent 32px
-  );
+  background: repeating-linear-gradient(to right,
+      #ff4d8d 0,
+      #ff4d8d 16px,
+      transparent 16px,
+      transparent 32px);
   border-radius: 6px;
   opacity: 0.6;
 }
@@ -122,13 +163,13 @@
 
 @media (max-width: 768px) {
   .dashboard {
-    padding-left: 16px;   // ✅ mobile me normal padding
+    padding-left: 16px; // ✅ mobile me normal padding
     padding-right: 16px;
     padding-top: 80px;
   }
 
   .cards-row {
-    flex-direction: column;   // ✅ cards stack honge
+    flex-direction: column; // ✅ cards stack honge
   }
 
   .card {
