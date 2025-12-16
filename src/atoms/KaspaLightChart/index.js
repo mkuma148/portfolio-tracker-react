@@ -42,7 +42,7 @@ const KaspaLightChart = (props) => {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [error, retryIn]);
+    }, [error, retryIn, onRetryChange]);
 
 
 
@@ -129,7 +129,7 @@ const KaspaLightChart = (props) => {
             })
             .finally(() => setLoading(false));
 
-    }, [days]);
+    }, [days, cachedData, coin, onRetryChange]);
 
     return (
         <div>
