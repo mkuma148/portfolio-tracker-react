@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./home.scss";
-import TradingViewChart from "../../atoms/TradingViewChart";
-import { Button } from "react-bootstrap";
-import TradingViewAdvancedChart from "../../atoms/TradingViewAdvancedChart";
+// import TradingViewChart from "../../atoms/TradingViewChart";
+// import { Button } from "react-bootstrap";
+// import TradingViewAdvancedChart from "../../atoms/TradingViewAdvancedChart";
 import KaspaLightChart from "../../atoms/KaspaLightChart";
 
 // ------------------
@@ -22,8 +22,8 @@ const stats = {
 };
 
 export default function Home() {
-  const [coin, setCoin] = useState("MEXC:KASUSDT");
-  const [theme, setTheme] = useState("light");
+  // const [coin, setCoin] = useState("MEXC:KASUSDT");
+  // const [theme, setTheme] = useState("light");
   const [activeCoin, setActiveCoin] = useState("kaspa");
   const [isRetrying, setIsRetrying] = useState(false);
   return (

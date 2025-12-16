@@ -14,6 +14,7 @@ const TIMEFRAMES = [
 const CACHE_EXPIRY = 1 * 60 * 1000; // 🔹 1 minutes cache expiry
 
 const KaspaLightChart = (props) => {
+    const { onRetryChange, coin } = props;
     const containerRef = useRef(null);
     const chartRef = useRef(null);
     const seriesRef = useRef(null);
@@ -33,7 +34,7 @@ const KaspaLightChart = (props) => {
                 if (prev <= 1) {
                     clearInterval(timer);
                     setError(false); // 🔹 hide message
-                    props.onRetryChange?.(false); // 🔹 parent buttons enable
+                    onRetryChange?.(false); // 🔹 parent buttons enable
                     return 0;
                 }
                 return prev - 1;
@@ -71,9 +72,9 @@ const KaspaLightChart = (props) => {
             });
 
             const areaSeries = chart.addSeries(AreaSeries, {
-                lineColor: props.coin === "kaspa" ? "turquoise" : "orange",
+                lineColor: coin === "kaspa" ? "turquoise" : "orange",
                 topColor: "green",
-                bottomColor: props.coin === "kaspa" ? "turquoise" : "orange",
+                bottomColor: coin === "kaspa" ? "turquoise" : "orange",
                 lineWidth: 2,
                 priceFormat: {
                     type: 'price',
@@ -99,7 +100,7 @@ const KaspaLightChart = (props) => {
         // 🔹 Fetch fresh data
         setLoading(true);
         setError(false); // 🔹 Reset error before fetch
-        fetch(`https://api.coingecko.com/api/v3/coins/${props.coin}/market_chart?vs_currency=usd&days=${days}`)
+        fetch(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${days}`)
             .then((res) => {
                 if (!res.ok) throw new Error("API Error"); // 🔹 Handle HTTP errors
                 return res.json();
@@ -124,7 +125,7 @@ const KaspaLightChart = (props) => {
                 setError(true); // 🔹 Set error if fetch fails
 
                 setRetryIn(CACHE_EXPIRY / 1000);
-                 props.onRetryChange?.(true); // 🔹 parent buttons disable
+                 onRetryChange?.(true); // 🔹 parent buttons disable
             })
             .finally(() => setLoading(false));
 
@@ -133,7 +134,7 @@ const KaspaLightChart = (props) => {
     return (
         <div>
             <div style={{ marginBottom: "6px", color: "#94a3b8", fontSize: "13px" }}>
-                {props.coin === "kaspa" ?
+                {coin === "kaspa" ?
                     `Kaspa (KAS) · Last ${days} Days · USD` : `Bitcoin (BTC) · Last ${days} Days · USD`}
             </div>
 
@@ -142,7 +143,7 @@ const KaspaLightChart = (props) => {
                     <button
                         key={tf.days}
                         onClick={() => !loading && setDays(tf.days)}
-                        className={props.coin === "kaspa" ? `tf-button-kaspa ${days === tf.days ? 'active' : ''}` : `tf-button-bitcoin ${days === tf.days ? 'active' : ''}`}
+                        className={coin === "kaspa" ? `tf-button-kaspa ${days === tf.days ? 'active' : ''}` : `tf-button-bitcoin ${days === tf.days ? 'active' : ''}`}
                         disabled={loading || retryIn > 0}
                     >
                         {tf.label}
