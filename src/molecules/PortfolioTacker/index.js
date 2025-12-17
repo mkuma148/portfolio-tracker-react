@@ -48,14 +48,7 @@ const PortfolioTracker = () => {
         try {
             if (showLoader) setTableLoading(true);
 
-            const res = await AxiosService.get(
-                "api/wallets/user/holdings",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
+            const res = await AxiosService.get("api/wallets/user/holdings");
 
             if (!res.ok) throw new Error("Fetch failed");
 
@@ -88,16 +81,11 @@ const PortfolioTracker = () => {
             setAdding(true);
 
             const res = await AxiosService.post("api/holdings/add", {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                    symbol: selectedCoin.symbol,
-                    quantity: Number(quantity),
-                    buyFee: buyFee ? Number(buyFee) : 0
-                }),
-            });
+                symbol: selectedCoin.symbol,
+                quantity: Number(quantity),
+                buyFee: buyFee ? Number(buyFee) : 0
+            },
+            );
 
             if (!res.ok) throw new Error("Add failed");
 
@@ -207,7 +195,7 @@ const PortfolioTracker = () => {
                     value={buyFee}
                     onChange={(e) => setBuyFee(e.target.value)}
                     style={{ width: 140 }}
-                    // helperText="Optional"
+                // helperText="Optional"
                 />
 
                 <Button
