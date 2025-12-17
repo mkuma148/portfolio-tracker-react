@@ -48,7 +48,7 @@ const PortfolioTracker = () => {
         try {
             if (showLoader) setTableLoading(true);
 
-            const res = await AxiosService.post(
+            const res = await AxiosService.get(
                 "api/wallets/user/holdings",
                 {
                     headers: {
@@ -88,7 +88,6 @@ const PortfolioTracker = () => {
             setAdding(true);
 
             const res = await AxiosService.post("api/holdings/add", {
-                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
