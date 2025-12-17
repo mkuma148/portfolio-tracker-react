@@ -44,7 +44,7 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
     const manageSubmenu = {
         heading: "Portfolio",
         menu: [
-            { menu: "Contributions", link: "/manage?tab=contributions" },
+            { menu: "Portfolio", link: "/portfolio" },
             { menu: "Investments", link: "/manage?tab=investments" },
             { menu: "Withdrawals", link: "/manage?tab=withdrawals" },
             { menu: "Other pots", link: "/manage?tab=otherPots" },
