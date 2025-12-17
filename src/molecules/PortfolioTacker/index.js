@@ -17,6 +17,7 @@ import {
     Autocomplete,
     CircularProgress,
 } from "@mui/material";
+import AxiosService from "../../redux/helpers/interceptor";
 
 // Static coin list
 const coinOptions = [
@@ -47,8 +48,8 @@ const PortfolioTracker = () => {
         try {
             if (showLoader) setTableLoading(true);
 
-            const res = await fetch(
-                "http://localhost:8080/api/wallets/user/holdings",
+            const res = await AxiosService.post(
+                "api/wallets/user/holdings",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -86,7 +87,7 @@ const PortfolioTracker = () => {
         try {
             setAdding(true);
 
-            const res = await fetch("http://localhost:8080/api/holdings/add", {
+            const res = await AxiosService.post("api/holdings/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
