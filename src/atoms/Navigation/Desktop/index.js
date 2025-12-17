@@ -37,7 +37,7 @@ const routes = [
         ],
     },
     {
-        path: "/manage",
+        path: "/portfolio",
         name: "Portfolio",
         icon: "portfolio",
         iconBlue: "portfolio",
@@ -50,14 +50,6 @@ const routes = [
             {
                 path: "/manage?tab=investments",
                 name: "Investments",
-            },
-            {
-                path: "/manage?tab=withdrawals",
-                name: "Withdrawals",
-            },
-            {
-                path: "/manage?tab=otherPots",
-                name: "Other pots ",
             },
         ],
     },
@@ -79,15 +71,6 @@ const routes = [
             {
                 path: "/plan?tab=futureCalculator",
                 name: "Plan your future calculator",
-            },
-            // TODO - RA will be disabled in preprod and prod env
-            {
-                path: "/plan?tab=retirementApplication",
-                name: "Retirement application",
-            },
-            {
-                path: "/plan?tab=leavingTpt",
-                name: "Leaving TPT",
             },
         ],
     },
@@ -114,18 +97,6 @@ const routes = [
             {
                 path: "/account-details",
                 name: "Account details",
-            },
-            {
-                path: "/beneficiaries",
-                name: "Beneficiaries",
-            },
-            {
-                path: "/messages-and-documents",
-                name: "Messages & documents",
-            },
-            {
-                path: "/communication-preferences",
-                name: "Communication settings",
             },
             {
                 path: "/account-settings",

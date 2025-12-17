@@ -8,6 +8,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Col, Row } from "react-bootstrap";
 import { Icons } from "./atoms/Icons";
 import { jwtDecode } from "jwt-decode";
+import PortfolioTracker from "./molecules/PortfolioTacker";
 // import Buttons from "./atoms/Buttons";
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/portfolio" element={<PortfolioTracker />} />
               </Routes>
             </GoogleOAuthProvider>
           </div>

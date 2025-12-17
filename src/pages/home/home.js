@@ -4,6 +4,7 @@ import "./home.scss";
 // import { Button } from "react-bootstrap";
 // import TradingViewAdvancedChart from "../../atoms/TradingViewAdvancedChart";
 import KaspaLightChart from "../../atoms/KaspaLightChart";
+import PortfolioPieChart from "../../atoms/PortfolioPieChart";
 
 // ------------------
 // STATIC DATA ONLY
@@ -38,10 +39,7 @@ export default function Home() {
           {/* Balance Card */}
           <div className="card balance">
             <h4>Current Balance</h4>
-            <div className="circle">
-              <span>{stats.balance}</span>
-            </div>
-            <p className="used">{stats.used} used</p>
+            <PortfolioPieChart />
           </div>
 
           {/* Transaction Graph (static) */}
@@ -65,8 +63,8 @@ export default function Home() {
                 </button>
               </div>
 
-              {activeCoin === "kaspa" && <KaspaLightChart coin="kaspa" onRetryChange={setIsRetrying}/>}
-              {activeCoin === "bitcoin" && <KaspaLightChart coin="bitcoin" onRetryChange={setIsRetrying}/>}
+              {activeCoin === "kaspa" && <KaspaLightChart coin="kaspa" onRetryChange={setIsRetrying} />}
+              {activeCoin === "bitcoin" && <KaspaLightChart coin="bitcoin" onRetryChange={setIsRetrying} />}
             </div>
           </div>
         </div>
