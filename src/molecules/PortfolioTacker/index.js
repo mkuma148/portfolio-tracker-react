@@ -47,14 +47,10 @@ const PortfolioTracker = () => {
         try {
             if (showLoader) setTableLoading(true);
 
-            const res = await AxiosService.get("api/wallets/user/holdings");
-
-            if (!res.ok) throw new Error("Fetch failed");
-
-            const data = await res.json();
+            const data = await AxiosService.get("api/wallets/user/holdings");
             setHoldings(data);
         } catch (err) {
-            console.error(err);
+            console.error("Fetch holdings error:", err);
         } finally {
             if (showLoader) setTableLoading(false);
         }
@@ -79,14 +75,12 @@ const PortfolioTracker = () => {
         try {
             setAdding(true);
 
-            const res = await AxiosService.post("api/holdings/add", {
+            await AxiosService.post("api/holdings/add", {
                 symbol: selectedCoin.symbol,
                 quantity: Number(quantity),
                 buyFee: buyFee ? Number(buyFee) : 0
             },
             );
-
-            if (!res.ok) throw new Error("Add failed");
 
             await fetchUserHoldings(false);
             setSelectedCoin(null);

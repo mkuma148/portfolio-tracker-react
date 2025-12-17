@@ -9,40 +9,28 @@ import {
     ResponsiveContainer
 } from "recharts";
 import { CircularProgress } from "@mui/material";
+import AxiosService from "../../redux/helpers/interceptor";
 
 // Colors for slices
 const COLORS = ["#f7931a", "#627eea", "#00ffa3", "#8247e5", "#999999"];
 
 const PortfolioPieChart = () => {
-    const token = localStorage.getItem("token");
     const [activeIndex, setActiveIndex] = useState(null);
     const [tableLoading, setTableLoading] = useState(false);
     const [holdings, setHoldings] = useState([]);
 
-    const fetchUserHoldings = useCallback(async (showTableLoader = false) => {
+    const fetchUserHoldings = useCallback(async (showLoader = false) => {
         try {
-            if (showTableLoader) setTableLoading(true);
-            const res = await fetch(
-                "http://localhost:8080/api/wallets/user/holdings",
-                {
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                    },
-                }
-            );
+            if (showLoader) setTableLoading(true);
 
-            if (!res.ok) throw new Error("Failed to fetch holdings");
-
-            const data = await res.json();
+            const data = await AxiosService.get("api/wallets/user/holdings");
             setHoldings(data);
         } catch (err) {
             console.error("Fetch holdings error:", err);
         } finally {
-            if (showTableLoader) setTableLoading(false);
+            if (showLoader) setTableLoading(false);
         }
-    }, [token]);
-
-    console.log("holdings ", holdings);
+    }, []);
 
     useEffect(() => {
         fetchUserHoldings(true);
