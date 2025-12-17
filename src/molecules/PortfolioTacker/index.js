@@ -59,7 +59,7 @@ const PortfolioTracker = () => {
         } finally {
             if (showLoader) setTableLoading(false);
         }
-    }, [token]);
+    }, []);
 
     useEffect(() => {
         fetchUserHoldings(true);
