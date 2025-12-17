@@ -27,7 +27,6 @@ const coinOptions = [
 ];
 
 const PortfolioTracker = () => {
-    const token = localStorage.getItem("token");
 
     const [holdings, setHoldings] = useState([]);
     const [selectedCoin, setSelectedCoin] = useState(null);
