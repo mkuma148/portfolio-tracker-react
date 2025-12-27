@@ -33,7 +33,7 @@ const Registration = () => {
         localStorage.setItem("token", res.token);
         setError("");
         setSuccess("Registration successful ✅");
-        setTimeout(() => navigate("/home"), 1500);
+        setTimeout(() => navigate("/dashboard"), 1500);
       } else {
         setSuccess("");
         setError("Registration failed ❌");

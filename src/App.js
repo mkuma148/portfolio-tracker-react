@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation, NavLink } from "react-router-dom";
 import Login from "./pages/login/login";
-import Home from "./pages/home/home";
 import Registration from "./pages/registration/registration";
 import Header from "./atoms/Header";
 import { Layout } from "./HOC/Layout";
@@ -9,6 +8,7 @@ import { Col, Row } from "react-bootstrap";
 import { Icons } from "./atoms/Icons";
 import { jwtDecode } from "jwt-decode";
 import PortfolioTracker from "./molecules/PortfolioTacker";
+import Dashboard from "./pages/dashboard/dashboard";
 // import Buttons from "./atoms/Buttons";
 
 function App() {
@@ -80,7 +80,7 @@ function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/portfolio" element={<PortfolioTracker />} />
               </Routes>
             </GoogleOAuthProvider>

@@ -12,7 +12,35 @@ import { CircularProgress } from "@mui/material";
 import AxiosService from "../../redux/helpers/interceptor";
 
 // Colors for slices
-const COLORS = ["#f7931a", "#627eea", "#00ffa3", "#8247e5", "#999999"];
+const COLORS = ["#f7931a", "#627eea", "#2fd3c9", "#8247e5", "#999999"];
+
+const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        const { coin, totalValue } = payload[0].payload;
+
+        return (
+            <div
+                style={{
+                    background: "rgba(15, 23, 42, 0.9)",
+                    padding: "6px 10px",
+                    borderRadius: "20px",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: "#fff",
+                    whiteSpace: "nowrap",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.25)",
+                }}
+            >
+                <span style={{ opacity: 0.85 }}>{coin}</span>
+                <span style={{ margin: "0 6px", opacity: 0.4 }}>•</span>
+                <span style={{ color: "#00ffa3" }}>
+                    ${Number(totalValue).toLocaleString("en-US")}
+                </span>
+            </div>
+        );
+    }
+    return null;
+};
 
 const PortfolioPieChart = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -90,7 +118,7 @@ const PortfolioPieChart = () => {
                     cy="50%"
                     innerRadius={70}
                     outerRadius={120}
-                    paddingAngle={4}
+                    paddingAngle={1}
                     activeIndex={activeIndex}
                     onMouseEnter={onPieEnter}
                     onMouseLeave={onPieLeave}
@@ -109,9 +137,7 @@ const PortfolioPieChart = () => {
                 </Pie>
 
                 {/* Tooltip */}
-                <Tooltip
-                    formatter={(totalValue, coin) => [`${totalValue}$`, coin]}
-                />
+                <Tooltip content={CustomTooltip} />
                 <Legend
                     layout="vertical"
                     verticalAlign="middle"
@@ -133,6 +159,19 @@ const PortfolioPieChart = () => {
                     fontWeight="bold"
                 >
                     {consolidatedAmount}$
+                </text>
+                <text
+                    x="44%"
+                    y="95%"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize={13}
+                    letterSpacing="1.2px"
+                    fill="#64748b"          // slate-gray (premium)
+                    fontWeight="500"
+                    opacity="0.85"
+                >
+                    Total Holdings
                 </text>
 
             </PieChart>

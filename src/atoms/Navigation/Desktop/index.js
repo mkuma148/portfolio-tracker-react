@@ -7,23 +7,24 @@ import { Icons } from "../../Icons";
 // import { MEMBERTYPE } from "../../../constants/constants";
 // import { useSelector } from "react-redux";
 // import { isHybridMember } from "../../../helpers/helpers";
+import kasfolio from "../../../assets/kasfolio_transparent.png";
 const routes = [
     {
-        path: "/home",
+        path: "/dashboard",
         name: "Dashboard",
         icon: "dashboard-solid",
         visible: false,
     },
     {
-        path: "/savings",
+        path: "/market",
         name: "Market",
         icon: "market",
         iconBlue: "market",
         visible: false,
         subRoutes: [
             {
-                path: "/savings?tab=summary",
-                name: "Summary",
+                path: "/market?tab=crypto",
+                name: "Crypto",
             },
             // TODO - Hiding track my value, as its considered as not a day1 requirement
             // {
@@ -31,8 +32,8 @@ const routes = [
             //   name: "Performance",
             // },
             {
-                path: "/savings?tab=transactions",
-                name: "Transactions",
+                path: "/market?tab=stocks",
+                name: "Stocks",
             },
         ],
     },
@@ -44,45 +45,41 @@ const routes = [
         visible: false,
         subRoutes: [
             {
-                path: "/manage?tab=contributions",
-                name: "Contributions",
+                path: "/portfolio?tab=crypto",
+                name: "Crypto",
             },
             {
-                path: "/manage?tab=investments",
-                name: "Investments",
+                path: "/portfolio?tab=stocks",
+                name: "Stocks",
             },
         ],
     },
     {
-        path: "/plan",
+        path: "/watchlist",
         name: "Watchlist",
         icon: "watchlist",
         iconBlue: "watchlist",
         visible: false,
         subRoutes: [
             {
-                path: "/plan?tab=tra",
-                name: "Target retirement age",
+                path: "/watchlist?tab=crypto",
+                name: "Crypto",
             },
             {
-                path: "/plan?tab=retirementExplorer",
-                name: "Retirement explorer",
-            },
-            {
-                path: "/plan?tab=futureCalculator",
-                name: "Plan your future calculator",
+                path: "/watchlist?tab=stocks",
+                name: "Stocks",
             },
         ],
     },
     {
-        path: "/learn",
+        path: "/notifications",
         name: "Notifications",
         icon: "notifications",
         iconBlue: "notifications",
         visible: false,
     },
     {
-        path: "/messages-and-documents?tab=messages",
+        path: "/news",
         name: "News",
         icon: "news",
         visible: false,
@@ -107,7 +104,7 @@ const routes = [
 ];
 
 const SideBar = ({ children, badgeCount, memberTypeObj }) => {
-    // const { potData } = useSelector((state) => state.totalPotInfo);
+
     const [labelDisable, setLabelDisable] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -239,7 +236,7 @@ const SideBar = ({ children, badgeCount, memberTypeObj }) => {
     }, [isOpen]);
 
     const navigateHome = () => {
-        navigate("/home");
+        navigate("/dashboard");
     };
 
     useEffect(() => {
@@ -314,12 +311,8 @@ const SideBar = ({ children, badgeCount, memberTypeObj }) => {
                     >
                         <AnimatePresence>
                             {isOpen && (
-                                <motion.div>
-                                    <Icons
-                                        iconname="Kaspa-Icon-Green-on-White"
-                                        variant="logo"
-                                        clickHandler={navigateHome}
-                                    />
+                                <motion.div style={{marginLeft: "-40px"}}>
+                                    <img src={kasfolio} className="logo-pic" alt="profile" onClick={navigateHome}/>
                                 </motion.div>
                             )}
                         </AnimatePresence>

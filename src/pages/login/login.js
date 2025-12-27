@@ -3,6 +3,7 @@ import AxiosService from "../../redux/helpers/interceptor";
 import "./login.scss";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import logo from "../../assets/kasfolio_transparent.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Login = () => {
         setError("");
         localStorage.setItem("token", res.token);
         setSuccess("Login successful ✅");
-        navigate("/home");
+        navigate("/dashboard");
       } else {
         setSuccess("");
         setError("Invalid username/password ❌");
@@ -49,7 +50,7 @@ const Login = () => {
       const res = await AxiosService.post(`${process.env.REACT_APP_API_BASE}/auth/google`, { idToken });
       console.log("res ", res);
       localStorage.setItem("token", res.token);
-      navigate("/home");
+      navigate("/dashboard");
     } catch (e) {
       alert(e.response?.data || e.message);
     }
@@ -60,7 +61,18 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="login-wrapper split-layout">
+      <div className="left-side">
+        <div className="brand">
+          <img src={logo} alt="Kasfolio" />
+          <h1>Kasfolio</h1>
+        </div>
+        <p className="company-desc">
+          Track your cryptocurrency portfolio in real-time,
+          get market insights, and manage your assets effortlessly.
+        </p>
+      </div>
+      <div className="vertical-divider"></div>
       <div className="login-card">
         <h2>Welcome Back 👋</h2>
         <p>Login to track your portfolio</p>
@@ -79,8 +91,8 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {error && <span style={{ color: "red" }}>{error}</span>}
-        {success && <span style={{ color: "green" }}>{success}</span>}
+        {error && <span className="error-msg">{error}</span>}
+        {success && <span className="success-msg">{success}</span>}
 
         <button onClick={handleLogin}>Sign In</button>
 

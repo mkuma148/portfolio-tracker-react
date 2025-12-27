@@ -49,3 +49,45 @@
     cursor: not-allowed;
     opacity: 0.6;
 }
+
+.graph {
+  .coin-btn {
+    border-radius: 999px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    opacity: 0.7;
+    letter-spacing: 0.4px;
+  }
+
+  .coin-btn.kaspa {
+    background: linear-gradient(135deg, #2fd3c9, #18b8ae);
+    color: #003a38;
+  }
+
+  .coin-btn.bitcoin {
+    background: linear-gradient(135deg, #f7931a, #e67e00);
+    color: #3a2400;
+  }
+
+  .coin-btn.active {
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .coin-btn:hover {
+    opacity: 1;
+  }
+
+  .coin-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: saturate(70%);
+    box-shadow: none;
+    transform: none;
+    pointer-events: none;
+  }
+}

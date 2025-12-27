@@ -34,10 +34,10 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
     const savingsSubmenu = {
         heading: "Market",
         menu: [
-            { menu: "Summary", link: "/savings?tab=summary" },
+            { menu: "Crypto", link: "/market?tab=crypto" },
             // TODO - Hiding track my value, as its considered as not a day1 requirement
             // { menu: "Performance", link: "/savings?tab=trackMyValue" },
-            { menu: "Transactions", link: "/savings?tab=transactions" },
+            { menu: "Stocks", link: "/market?tab=stocks" },
         ],
     };
 
@@ -45,27 +45,16 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
         heading: "Portfolio",
         menu: [
             { menu: "Portfolio", link: "/portfolio" },
-            { menu: "Investments", link: "/manage?tab=investments" },
-            { menu: "Withdrawals", link: "/manage?tab=withdrawals" },
-            { menu: "Other pots", link: "/manage?tab=otherPots" },
+            { menu: "Crypto", link: "/portfolio?tab=crypto" },
+            { menu: "Stocks", link: "/portfolio?tab=stocks" },
         ],
     };
 
     const planSubmenu = {
         heading: "Watchlist",
         menu: [
-            { menu: "Target retirement age", link: "/plan?tab=tra" },
-            { menu: "Retirement explorer", link: "/plan?tab=retirementExplorer" },
-            {
-                menu: "Plan your future calculator",
-                link: "/plan?tab=futureCalculator",
-            },
-            // TODO - RA will be disabled in preprod and prod env
-            {
-                menu: "Retirement application",
-                link: "/plan?tab=retirementApplication",
-            },
-            { menu: "Leaving TPT", link: "/plan?tab=leavingTpt" },
+            { menu: "Crypto", link: "/watchlist?tab=crypto" },
+            { menu: "Stocks", link: "/watchlist?tab=stocks" },
         ],
     };
 
@@ -136,10 +125,7 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
     const accountSubmenu = {
         heading: "Account",
         menu: [
-            { menu: "Account details", link: "/account-details?tab=personalDetails" },
-            { menu: "Beneficiaries", link: "/beneficiaries" },
-            { menu: "Messages & documents", link: "/messages-and-documents" },
-            { menu: "Communication settings", link: "/communication-preferences" },
+            { menu: "Account details", link: "/account-details" },
             { menu: "Account settings", link: "/account-settings" },
         ],
     };

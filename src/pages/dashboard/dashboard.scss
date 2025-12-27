@@ -1,0 +1,122 @@
+.dashboard {
+  min-height: 100vh;
+  padding-left: 120px;
+  padding-top: 24px;
+  padding-right: 40px;
+
+  &--no-nav {
+    .main {
+      margin: 0;
+    }
+  }
+}
+
+.main {
+  max-width: 1360px;
+  margin: auto;
+}
+
+.cards-row {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+/* ======================
+   CARD BASE – PREMIUM
+====================== */
+.card {
+  padding: 22px;
+  flex: 1;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+  }
+
+&.sentiment-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+}
+
+.cards-row .card:nth-last-child(-n + 3) {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ======================
+   SENTIMENT / STATS
+====================== */
+.bars {
+  height: 120px;
+  margin-top: 18px;
+  border-radius: 8px;
+  background: repeating-linear-gradient(to right,
+      rgba(255, 77, 141, 0.7) 0,
+      rgba(255, 77, 141, 0.7) 16px,
+      transparent 16px,
+      transparent 32px);
+  opacity: 0.7;
+}
+
+/* ======================
+   BUYERS
+====================== */
+.buyer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e6e9ef;
+
+  span {
+    font-weight: 500;
+    color: #333;
+  }
+
+  small {
+    color: #888;
+    font-size: 12px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ======================
+   CONVERSION
+====================== */
+.center {
+  text-align: center;
+
+  strong {
+    font-size: 38px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ======================
+   MOBILE
+====================== */
+@media (max-width: 768px) {
+  .dashboard {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 80px;
+  }
+
+  .cards-row {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

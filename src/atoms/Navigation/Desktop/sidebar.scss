@@ -3,7 +3,7 @@
 
     & .active {
         border-left: 2px solid turquoise;
-        background: rgba(255,255,255,1);
+        background: rgba(255, 255, 255, 1);
     }
 
     & .menu-item {
@@ -61,6 +61,12 @@
         justify-content: space-between;
         padding: 25px 25px 25px;
         transition: width 0.1s ease;
+
+        .logo-pic {
+            height: 100px;
+            width: 150px;
+            cursor: pointer;
+        }
     }
 
     & .item-scrolled {
@@ -96,7 +102,7 @@
 
         &:hover {
             border-left: 2px solid turquoise;
-            background: rgba(255,255,255,0.6)
+            background: rgba(255, 255, 255, 0.6)
         }
 
         .badge {
@@ -118,7 +124,7 @@
 
         &:hover {
             border-left: 2px solid turquoise;
-            background:rgba(255,255,255,0.6)
+            background: rgba(255, 255, 255, 0.6)
         }
     }
 
@@ -131,8 +137,9 @@
         padding-left: 46px;
         white-space: wrap;
         background: #F5F5F5;
+
         &:hover {
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
         }
     }
 
