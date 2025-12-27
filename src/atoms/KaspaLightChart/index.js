@@ -145,7 +145,7 @@ const KaspaLightChart = (props) => {
                     `Kaspa (KAS) · Last ${days} Days · USD` : `Bitcoin (BTC) · Last ${days} Days · USD`}
             </div>
 
-            <div style={{ display: "flex", marginTop: "8px" }}>
+            <div style={{ display: "flex", marginTop: "8px", marginBottom: "10px" }}>
                 {TIMEFRAMES.map((tf) => (
                     <button
                         key={tf.days}
@@ -156,7 +156,7 @@ const KaspaLightChart = (props) => {
                         {tf.label}
                     </button>
                 ))}
-                <div className="graph d-none d-md-block" style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
+                <div className="graph d-none d-md-flex" style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
                     <button className={`coin-btn ${coin === "kaspa" ? "kaspa active" : "kaspa"}`} onClick={() => loadChart("kaspa")} disabled={isRetrying}>
                         Kaspa
                     </button>
@@ -182,8 +182,8 @@ const KaspaLightChart = (props) => {
                     boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
                 }}
             />
-            <div style={{ display: "flex", marginBottom: "8px" }} className="d-block d-md-none">
-                <div className="graph" style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
+            <div style={{ marginBottom: "8px" }} className="d-flex d-md-none">
+                <div className="graph" style={{ display: "flex", gap: "10px", marginLeft: "auto", marginTop: "20px" }}>
                     <button className={`coin-btn ${coin === "kaspa" ? "kaspa active" : "kaspa"}`} onClick={() => loadChart("kaspa")} disabled={isRetrying}>
                         Kaspa
                     </button>
