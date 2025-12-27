@@ -3,12 +3,6 @@
   padding-left: 120px;
   padding-top: 24px;
   padding-right: 40px;
-
-  &--no-nav {
-    .main {
-      margin: 0;
-    }
-  }
 }
 
 .main {
@@ -20,20 +14,19 @@
   display: flex;
   gap: 22px;
   margin-bottom: 22px;
-  align-items: stretch; // 🔥 important
+  align-items: stretch;
 }
 
 /* ======================
-   CARD BASE – PREMIUM
+   CARD BASE
 ====================== */
 .card {
   padding: 22px;
   flex: 1;
-  border-radius: 18px;
+  border-radius: 16px;
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   &:hover {
     transform: translateY(-4px);
@@ -47,7 +40,7 @@
   }
 }
 
-/* 🔥 ONLY second row cards (sentiment row) */
+/* 🔥 ONLY sentiment row should be clean */
 .cards-row:last-child .card {
   background: none !important;
   box-shadow: none !important;
@@ -55,18 +48,20 @@
 }
 
 /* ======================
-   ROW HEIGHT BALANCE
+   DESKTOP ONLY HEIGHT CONTROL
 ====================== */
-.cards-row:first-child .card {
-  min-height: 300px; // chart + pie
-}
+@media (min-width: 1025px) {
+  .cards-row:first-child .card {
+    min-height: 300px;
+  }
 
-.cards-row:last-child .card {
-  min-height: 240px; // meters
+  .cards-row:last-child .card {
+    min-height: 240px;
+  }
 }
 
 /* ======================
-   TABLET (≤1024px)
+   TABLET
 ====================== */
 @media (max-width: 1024px) {
   .dashboard {
@@ -81,97 +76,25 @@
   .cards-row .card {
     flex: 1 1 calc(50% - 11px);
   }
-
-  .cards-row:first-child .card {
-    min-height: 280px;
-  }
-
-  .cards-row:last-child .card {
-    min-height: 220px;
-  }
 }
 
 /* ======================
-   MOBILE (≤768px)
+   MOBILE – NO FORCED HEIGHT 🚑
 ====================== */
 @media (max-width: 768px) {
   .dashboard {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 80px;
+    padding: 16px;
+    padding-top: 72px;
   }
 
   .cards-row {
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
 
   .card {
     width: 100%;
-    padding: 20px;
-  }
-
-  .cards-row:first-child .card {
-    min-height: 240px;
-  }
-
-  .cards-row:last-child .card {
-    min-height: 210px;
-  }
-}
-
-/* ======================
-   SENTIMENT / STATS
-====================== */
-.bars {
-  height: 120px;
-  margin-top: 18px;
-  border-radius: 8px;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(255, 77, 141, 0.7) 0,
-    rgba(255, 77, 141, 0.7) 16px,
-    transparent 16px,
-    transparent 32px
-  );
-  opacity: 0.7;
-}
-
-/* ======================
-   BUYERS
-====================== */
-.buyer {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px dashed #e6e9ef;
-
-  span {
-    font-weight: 500;
-    color: #333;
-  }
-
-  small {
-    color: #888;
-    font-size: 12px;
-  }
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-/* ======================
-   CONVERSION
-====================== */
-.center {
-  text-align: center;
-
-  strong {
-    font-size: 38px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    padding: 18px;
+    min-height: auto !important; // 🔥 THIS FIXES EVERYTHING
   }
 }
