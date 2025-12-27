@@ -88,6 +88,10 @@
    MOBILE – NO FORCED HEIGHT 🚑
 ====================== */
 @media (max-width: 768px) {
+
+  /* ======================
+     DASHBOARD SPACING
+  ====================== */
   .dashboard {
     padding: 16px;
     padding-top: 72px;
@@ -102,20 +106,50 @@
     width: 100%;
     padding: 18px;
     min-height: auto !important;
-    overflow: visible; // 🔥 hide nahi karna
+    overflow: visible; // ❌ hide nahi karna
+    position: relative;
   }
 
-  /* 🔥 Chart ke buttons ko upar proper space */
-  .card > div {
-    margin-top: 12px;
+  /* ======================
+     CHART FIXES
+  ====================== */
+
+  /* Chart thoda compact */
+  .card canvas,
+  .card iframe {
+    display: block;
+    margin-bottom: 12px;
   }
 
-  /* 🔥 Sentiment card breathing space */
+  /* 🔥 Kaspa / Bitcoin buttons chart ke NICHE */
+  .card .coin-switch,
+  .card .chart-buttons,
+  .card .tv-buttons {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Buttons size thoda mobile friendly */
+  .card .coin-switch button,
+  .card .chart-buttons button,
+  .card .tv-buttons button {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+
+  /* ======================
+     SENTIMENT CARD FIX
+  ====================== */
   .sentiment-card {
     padding: 28px 20px !important;
   }
 
   .sentiment-card svg {
-    max-height: 170px;
+    max-height: 165px;
   }
 }
