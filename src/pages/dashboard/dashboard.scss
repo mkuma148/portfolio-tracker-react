@@ -20,6 +20,7 @@
   display: flex;
   gap: 22px;
   margin-bottom: 22px;
+  flex-wrap: nowrap;
 }
 
 /* ======================
@@ -28,24 +29,62 @@
 .card {
   padding: 22px;
   flex: 1;
+  transition: all 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
   }
 
-&.sentiment-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+  &.sentiment-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 .cards-row .card:nth-last-child(-n + 3) {
   background: none !important;
   box-shadow: none !important;
   border: none !important;
+}
+
+/* ======================
+   TABLET (iPad etc)
+====================== */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .cards-row {
+    flex-wrap: wrap;
+  }
+
+  .cards-row .card {
+    flex: 1 1 calc(50% - 11px);
+  }
+}
+
+/* ======================
+   MOBILE
+====================== */
+@media (max-width: 768px) {
+  .dashboard {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 80px;
+  }
+
+  .cards-row {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
 
 /* ======================
