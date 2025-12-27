@@ -20,7 +20,7 @@
   display: flex;
   gap: 22px;
   margin-bottom: 22px;
-  flex-wrap: nowrap;
+  align-items: stretch; // 🔥 important
 }
 
 /* ======================
@@ -29,7 +29,11 @@
 .card {
   padding: 22px;
   flex: 1;
+  border-radius: 18px;
   transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &:hover {
     transform: translateY(-4px);
@@ -37,21 +41,32 @@
   }
 
   &.sentiment-card {
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    text-align: center;
   }
 }
 
-.cards-row .card:nth-last-child(-n + 3) {
+/* 🔥 ONLY second row cards (sentiment row) */
+.cards-row:last-child .card {
   background: none !important;
   box-shadow: none !important;
   border: none !important;
 }
 
 /* ======================
-   TABLET (iPad etc)
+   ROW HEIGHT BALANCE
+====================== */
+.cards-row:first-child .card {
+  min-height: 300px; // chart + pie
+}
+
+.cards-row:last-child .card {
+  min-height: 240px; // meters
+}
+
+/* ======================
+   TABLET (≤1024px)
 ====================== */
 @media (max-width: 1024px) {
   .dashboard {
@@ -66,10 +81,18 @@
   .cards-row .card {
     flex: 1 1 calc(50% - 11px);
   }
+
+  .cards-row:first-child .card {
+    min-height: 280px;
+  }
+
+  .cards-row:last-child .card {
+    min-height: 220px;
+  }
 }
 
 /* ======================
-   MOBILE
+   MOBILE (≤768px)
 ====================== */
 @media (max-width: 768px) {
   .dashboard {
@@ -80,10 +103,20 @@
 
   .cards-row {
     flex-direction: column;
+    gap: 18px;
   }
 
   .card {
     width: 100%;
+    padding: 20px;
+  }
+
+  .cards-row:first-child .card {
+    min-height: 240px;
+  }
+
+  .cards-row:last-child .card {
+    min-height: 210px;
   }
 }
 
@@ -94,11 +127,13 @@
   height: 120px;
   margin-top: 18px;
   border-radius: 8px;
-  background: repeating-linear-gradient(to right,
-      rgba(255, 77, 141, 0.7) 0,
-      rgba(255, 77, 141, 0.7) 16px,
-      transparent 16px,
-      transparent 32px);
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255, 77, 141, 0.7) 0,
+    rgba(255, 77, 141, 0.7) 16px,
+    transparent 16px,
+    transparent 32px
+  );
   opacity: 0.7;
 }
 
@@ -138,24 +173,5 @@
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-}
-
-/* ======================
-   MOBILE
-====================== */
-@media (max-width: 768px) {
-  .dashboard {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 80px;
-  }
-
-  .cards-row {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 100%;
   }
 }
