@@ -6,6 +6,12 @@
 
     & .tpt-brand {
         margin-left: 38px;
+
+        & .logo-pic {
+            height: 80px;
+            width: 130px;
+            cursor: pointer;
+        }
     }
 
     & .navbar-toggler {

@@ -145,7 +145,7 @@ const KaspaLightChart = (props) => {
                     `Kaspa (KAS) · Last ${days} Days · USD` : `Bitcoin (BTC) · Last ${days} Days · USD`}
             </div>
 
-            <div style={{ display: "flex", marginBottom: "8px" }}>
+            <div style={{ display: "flex", marginTop: "8px" }}>
                 {TIMEFRAMES.map((tf) => (
                     <button
                         key={tf.days}

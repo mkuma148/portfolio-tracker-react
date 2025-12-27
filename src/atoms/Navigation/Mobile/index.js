@@ -15,6 +15,7 @@ import { jwtDecode } from "jwt-decode";
 // import { MEMBERTYPE } from "../../../constants/constants";
 // import { useSelector } from "react-redux";
 // import { isHybridMember } from "../../../helpers/helpers";
+import kasfolio from "../../../assets/kasfolio_transparent.png";
 
 export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
     // const { potData } = useSelector((state) => state.totalPotInfo);
@@ -185,11 +186,12 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
                 >
                     <Container fluid>
                         <Navbar.Brand href="" className="tpt-brand">
-                            <Icons
+                            {/* <Icons
                                 iconname="logo-white"
                                 variant="logo"
                                 clickHandler={navigateHome}
-                            />
+                            /> */}
+                            <img src={kasfolio} className="logo-pic" alt="profile" onClick={navigateHome} />
                         </Navbar.Brand>
 
                         <Navbar.Toggle
