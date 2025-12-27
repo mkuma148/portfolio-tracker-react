@@ -182,13 +182,15 @@ const KaspaLightChart = (props) => {
                     boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
                 }}
             />
-            <div className="graph d-block d-md-none" style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
-                <button className={`coin-btn ${coin === "kaspa" ? "kaspa active" : "kaspa"}`} onClick={() => loadChart("kaspa")} disabled={isRetrying}>
-                    Kaspa
-                </button>
-                <button className={`coin-btn ${coin === "bitcoin" ? "bitcoin active" : "bitcoin"}`} onClick={() => loadChart("bitcoin")} disabled={isRetrying}>
-                    Bitcoin
-                </button>
+            <div style={{ display: "flex", marginBottom: "8px" }} className="d-block d-md-none">
+                <div className="graph" style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
+                    <button className={`coin-btn ${coin === "kaspa" ? "kaspa active" : "kaspa"}`} onClick={() => loadChart("kaspa")} disabled={isRetrying}>
+                        Kaspa
+                    </button>
+                    <button className={`coin-btn ${coin === "bitcoin" ? "bitcoin active" : "bitcoin"}`} onClick={() => loadChart("bitcoin")} disabled={isRetrying}>
+                        Bitcoin
+                    </button>
+                </div>
             </div>
             {error && !loading && (
                 <div style={{ color: "#f87171", fontSize: "13px", marginBottom: "6px" }}>
