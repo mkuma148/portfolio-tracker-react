@@ -101,6 +101,19 @@
   .card {
     width: 100%;
     padding: 18px;
-    min-height: auto !important; // 🔥 THIS FIXES EVERYTHING
+    min-height: auto !important;
+    overflow: hidden;
+  }
+
+  .card > div {
+    padding-top: 14px;
+  }
+
+  .sentiment-card {
+    padding: 30px 22px !important;
+  }
+
+  .sentiment-card svg {
+    max-height: 170px;
   }
 }
