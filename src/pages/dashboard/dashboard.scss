@@ -102,15 +102,17 @@
     width: 100%;
     padding: 18px;
     min-height: auto !important;
-    overflow: hidden;
+    overflow: visible; // 🔥 hide nahi karna
   }
 
+  /* 🔥 Chart ke buttons ko upar proper space */
   .card > div {
-    padding-top: 14px;
+    margin-top: 12px;
   }
 
+  /* 🔥 Sentiment card breathing space */
   .sentiment-card {
-    padding: 30px 22px !important;
+    padding: 28px 20px !important;
   }
 
   .sentiment-card svg {
