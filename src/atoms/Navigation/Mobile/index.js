@@ -230,7 +230,7 @@ export function MobileNavigation({ badgeCount, memberTypeObj, logoutUser }) {
                                             className="justify-content-end flex-grow-1 pe-3"
                                             onClick={closeNavbar}
                                         >
-                                            <Nav.Link as={Link} to="/home" forceRefresh={false}>
+                                            <Nav.Link as={Link} to="/dashboard" forceRefresh={false}>
                                                 <div className="container">
                                                     <div className="menuSpacing">
                                                         <Icons
