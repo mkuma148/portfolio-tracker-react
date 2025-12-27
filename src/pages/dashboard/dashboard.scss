@@ -40,6 +40,12 @@
   }
 }
 
+/* 🔒 Chart aspect ratio fix */
+.card > div {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 /* 🔥 ONLY sentiment row should be clean */
 .cards-row:last-child .card {
   background: none !important;
