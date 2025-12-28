@@ -180,7 +180,7 @@ const PortfolioTracker = () => {
     // UI
     // ===============================
     return (
-        <Container className="portfolio-page" style={{ marginTop: 50 }}>
+        <Container className="portfolio-page" style={{ marginTop: 92 }}>
             <div style={{ marginBottom: 24 }}>
                 <h2
                     style={{
